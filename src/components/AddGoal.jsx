@@ -5,10 +5,10 @@ const { Search } = Input;
 export default function AddGoal({ setGoalList }) {
     const [goal, setGoal] = useState('');
     const addGoal = () => {
-        fetch('https://final-proj.web.app/goals',{
+        fetch('https://mtm-final-proj.web.app/goals',{
             method: 'POST',
             headers: {
-              'Content-Type' : 'application/json'
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify({ goal, done: false })
         })
@@ -23,8 +23,8 @@ export default function AddGoal({ setGoalList }) {
         <Search
         value={goal}
         onChange={e => setGoal(e.target.value)}
-        enterButton="Add"
-        size='Large'
+        enterButton="Add Goal"
+        size='medium'
         onSearch={addGoal}
         />
     

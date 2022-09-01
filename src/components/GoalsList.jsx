@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function GoalList({ goallist, setGoalList}) {
     useEffect(() => {
-        fetch('https://final-proj.web.app/goals')
+        fetch('https://mtm-final-proj.web.app/goals')
         .then(result => result.json())
         .then(goals => setGoalList(goals))
         .catch(console.error)
