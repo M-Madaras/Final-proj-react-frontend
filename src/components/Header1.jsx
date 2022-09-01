@@ -1,4 +1,4 @@
-export default function header() {
+export default function Modal() {
    return (
     <> 
     <div id='BKC'>

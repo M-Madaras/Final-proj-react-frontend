@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import AddGoal from './components/AddGoal';
 import GoalList from './components/GoalsList';
-import { useState } from 'react';
 import './App.css';
 
 
@@ -39,7 +39,6 @@ function App() {
     </>
     <GoalList goallist={goallist} setGoalList={setGoalList}/>
     <AddGoal setGoalList={setGoalList}/>
-
     </div>
     
     
