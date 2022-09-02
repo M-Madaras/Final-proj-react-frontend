@@ -5,6 +5,7 @@
 }
 
 .App-header {
+  background-image: url(/Users/m.madaras/Desktop/bocacode/final-proj-frontend/src/trees.png);
   background-color: #efbb0f;
   min-height: 10vh;
   display: flex;
@@ -28,6 +29,7 @@
 }
 
 #BKC {
+  background-image: url(/Users/m.madaras/Desktop/bocacode/final-proj-frontend/src/trees.png);
   background-color: hsl(299, 90%, 52%);
 }
 

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
-import AddGoal from './components/AddGoal';
 import GoalList from './components/GoalsList';
+import AddGoal from './components/AddGoal';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import GifHeader from './components/Header1';
 import './App.css';
 import './components/Header1'
-import GifHeader from './components/Header1';
 
 const { Header, Content, Footer } = Layout;
 
@@ -14,12 +14,11 @@ function App() {
   const [goallist, setGoalList] = useState();
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
-  useEffect(()=>{
-    if(localStorage.getItem('token')) {
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
       setToken(localStorage.getItem('token'))
     }
-  },[setToken]);
-
+  }, [setToken]);
   return (
     <Layout className="layout">
       <Header>
@@ -37,29 +36,29 @@ function App() {
           padding: '0 50px',
         }}
       >
-         <div className="site-layout-content">
+        <div className="site-layout-content">
           <h1>Goal Setter</h1>
           <GoalList token={token} goallist={goallist} setGoallist={setGoalList} />
           <AddGoal token={token} setGoallist={setGoalList} />
           {!token ?
-            isUser 
+            isUser
               ? <Login setIsUser={setIsUser} setToken={setToken} />
               : <SignUp setIsUser={setIsUser} setToken={setToken} />
-          : null }
+            : null}
         </div>
       </Content>
-     <Footer
-     style={{
+      <Footer
+        style={{
           textAlign: 'center',
         }}
       >
-     </Footer>
-   <div>
-    <GifHeader/>
-    <GoalList goallist={goallist} setGoalList={setGoalList}/>
-    <AddGoal setGoalList={setGoalList}/>
-    </div>
-  
+      </Footer>
+      <div>
+        <GifHeader />
+        {/* <GoalList goallist={goallist} setGoalList={setGoalList} /> */}
+        {/* <AddGoal setGoalList={setGoalList} /> */}
+      </div>
+
     </Layout>
   );
 }

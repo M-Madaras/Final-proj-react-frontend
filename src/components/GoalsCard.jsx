@@ -1,11 +1,11 @@
 import { List, Switch } from 'antd';
 
-export default function GoalsCard({ token, item, setError, setLoading, setTasklist }) {
+export default function GoalsCard({ token, item, setError, setLoading, setGoalList }) {
   const handleSwitch = () => {
     // make a patch request to API
     setLoading(true);
     const body = { done: !item.done };
-    fetch(`https://three-do-api-mtm.web.app/tasks/${item.id}`, {
+    fetch(`https://three-do-api-mtm.web.app/goals/${item.id}`, {
     // fetch(`http://localhost:5555/tasks/${item.id}`, {
       method: 'PATCH',
       headers: {
@@ -16,7 +16,7 @@ export default function GoalsCard({ token, item, setError, setLoading, setTaskli
     })
       .then(response => response.json())
       .then(data => {
-        setTasklist(data);
+        setGoalList(data);
         setError('');
         setLoading(false);
       })
