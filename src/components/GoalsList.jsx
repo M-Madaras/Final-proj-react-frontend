@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { List, Alert } from 'antd';
 import GoalsCard from './GoalsCard';
 
-export default function TodoList({ goallist, setGoalsList, token }) {
+export default function TodoList({ goallist, setGoalList, token }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   // call the api and use setTasklist to fill in state...
@@ -15,7 +15,7 @@ export default function TodoList({ goallist, setGoalsList, token }) {
     })
       .then(results => results.json())
       .then(tasks => {
-        setGoalsList(tasks);
+        setGoalList(tasks);
         setLoading(false);
         setError('');
       })
@@ -23,7 +23,7 @@ export default function TodoList({ goallist, setGoalsList, token }) {
         setError(err.message);
         setLoading(false);
       })
-  }, [token, setGoalsList, setLoading, setError]);
+  }, [token, setGoalList, setLoading, setError]);
   return (
     <>
       {(error && token) && <Alert
@@ -42,7 +42,7 @@ export default function TodoList({ goallist, setGoalsList, token }) {
               item={item}
               token={token}
               setLoading={setLoading}
-              setTasklist={setGoalsList}
+              setGoalList={setGoalList}
               setError={setError} />
           )}
         />

@@ -38,8 +38,8 @@ function App() {
       >
         <div className="site-layout-content">
           <h1>Goal Setter</h1>
-          <GoalList token={token} goallist={goallist} setGoallist={setGoalList} />
-          <AddGoal token={token} setGoallist={setGoalList} />
+          <GoalList token={token} goallist={goallist} setGoalList={setGoalList} />
+          <AddGoal token={token} setGoalList={setGoalList} />
           {!token ?
             isUser
               ? <Login setIsUser={setIsUser} setToken={setToken} />

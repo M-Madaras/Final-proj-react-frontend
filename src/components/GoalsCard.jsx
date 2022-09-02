@@ -32,7 +32,7 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
             onChange={() => handleSwitch()}
             checked={item.done}
           />}
-        title={<p>{item.task}</p>}
+        title={<p>{item.goal}</p>}
       />
     </List.Item>
   )
