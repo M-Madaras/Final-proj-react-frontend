@@ -8,7 +8,8 @@ export default function AddGoal({ setGoalList }) {
         fetch('https://mtm-final-proj.web.app/goals',{
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': 'token',
             },
             body: JSON.stringify({ goal, done: false })
         })
@@ -20,13 +21,15 @@ export default function AddGoal({ setGoalList }) {
         .catch(console.error)
     }
     return(
-        <Search
-        value={goal}
-        onChange={e => setGoal(e.target.value)}
-        enterButton="Add Goal"
-        size='medium'
-        onSearch={addGoal}
-        />
+        <div className="add-goal">
+            <Search
+            value={goal}
+            onChange={e => setGoal(e.target.value)}
+            enterButton="Add Goal"
+            size='medium'
+            onSearch={addGoal}
+            />
+        </div>
     
     )
 }
