@@ -1,10 +1,10 @@
 import { Modal, Form, Input, Button } from 'antd';
 
-export default function Login({ setToken, setIsUser }) {
-  const handleLogin = ({ email, password }) => {
+export default function SignUp({ setToken, setIsUser }) {
+  const handleSignUp = ({ email, password }) => {
     // post request to api/users
-    fetch('https://mtm-final-proj.web.app/users/login', {
-      // fetch('http://localhost:5555/users/login', {
+    fetch('https://mtm-final-proj.web.app/users', {
+      // fetch('http://localhost:5555/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -20,8 +20,8 @@ export default function Login({ setToken, setIsUser }) {
     // setToken
   }
   return (
-    <Modal title="Login" visible closable={false} footer={null}>
-      <Form onFinish={handleLogin} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
+    <Modal title="Create Account" visible closable={false} footer={null}>
+      <Form onFinish={handleSignUp} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
         <Form.Item label="Email" name="email">
           <Input />
         </Form.Item>
@@ -29,9 +29,9 @@ export default function Login({ setToken, setIsUser }) {
           <Input.Password />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType='submit'>Login</Button>
+          <Button type="primary" htmlType='submit'>Sign up</Button>
         </Form.Item>
-        <p>Not a user? <Button onClick={() => setIsUser(false)} type={'link'}>Sign Up</Button></p>
+        <p>Already a user? <Button onClick={() => setIsUser(true)} type={'link'}>Login</Button></p>
       </Form>
     </Modal>
   )

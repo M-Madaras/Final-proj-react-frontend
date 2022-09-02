@@ -1,47 +1,66 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Layout, Menu } from 'antd';
 import AddGoal from './components/AddGoal';
 import GoalList from './components/GoalsList';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 import './App.css';
+import './components/Header1'
+import GifHeader from './components/Header1';
 
-
-// import Login from './components/Login';
-
-// function Auth() {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   return (
-//     <>
-//       <header>
-//         <h1>My First Login!!!</h1>
-//       </header>
-//       {isLoggedIn
-//         ? <GoalList />
-//         : <Login setIsLoggedIn={setIsLoggedIn}/>
-//       }
-//     </>
-
-//   );
-// }
-
+const { Header, Content, Footer } = Layout;
 
 function App() {
   const [goallist, setGoalList] = useState();
+  const [token, setToken] = useState();
+  const [isUser, setIsUser] = useState(false);
+  useEffect(()=>{
+    if(localStorage.getItem('token')) {
+      setToken(localStorage.getItem('token'))
+    }
+  },[setToken]);
+
   return (
-    
-      <div id='BKC'>
-    <>
-    <header className='App-header'>
-    <h1 className='App-header'>Goals</h1>
-    </header>
-    <h1 id='H1'>👍🏼YOU CAN DO IT!!!</h1>
-    <div className='App'>
-    <iframe allow="fullscreen" frameBorder="1" height="400" src="https://giphy.com/embed/trRoCGYflnr1PEvTbP/video" width="700"></iframe>
-    </div>
-    </>
+    <Layout className="layout">
+      <Header>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">Goals</Menu.Item>
+          <Menu.Item key="2">Login</Menu.Item>
+          <Menu.Item key="3">Sign Up</Menu.Item>
+        </Menu>
+      </Header>
+      <Content
+        style={{
+          padding: '0 50px',
+        }}
+      >
+         <div className="site-layout-content">
+          <h1>Goal Setter</h1>
+          <GoalList token={token} goallist={goallist} setGoallist={setGoalList} />
+          <AddGoal token={token} setGoallist={setGoalList} />
+          {!token ?
+            isUser 
+              ? <Login setIsUser={setIsUser} setToken={setToken} />
+              : <SignUp setIsUser={setIsUser} setToken={setToken} />
+          : null }
+        </div>
+      </Content>
+     <Footer
+     style={{
+          textAlign: 'center',
+        }}
+      >
+     </Footer>
+   <div>
+    <GifHeader/>
     <GoalList goallist={goallist} setGoalList={setGoalList}/>
     <AddGoal setGoalList={setGoalList}/>
     </div>
-    
-    
+  
+    </Layout>
   );
 }
 
