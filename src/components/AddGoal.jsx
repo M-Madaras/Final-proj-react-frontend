@@ -28,7 +28,7 @@ export default function AddGoal({ setGoalList, token }) {
             value={goal}
             onChange={e => setGoal(e.target.value)}
             enterButton="NewGoal"
-            size='medium'
+            size='Large'
             onSearch={addGoal}
             />
         </div>
