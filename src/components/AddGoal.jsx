@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Input } from "antd";
+import { useState } from 'react';
+import { Input } from 'antd';
 const { Search } = Input;
 
 export default function AddGoal({ setGoalList, token }) {
@@ -17,17 +17,17 @@ export default function AddGoal({ setGoalList, token }) {
         })
         .then(results => results.json())
         .then(data => {
-            setGoalList(data)
-            setGoal('')
+            setGoalList(data);
+            setGoal('');
         })
-        .catch(console.error)
+        .catch(console.error);
     }
     return(
         <div className="add-goal">
             <Search
             value={goal}
             onChange={e => setGoal(e.target.value)}
-            enterButton="Add Goal"
+            enterButton="NewGoal"
             size='medium'
             onSearch={addGoal}
             />

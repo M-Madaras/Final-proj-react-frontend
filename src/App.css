@@ -1,13 +1,31 @@
 @import 'antd/dist/antd.css';
 
+
+@keyframes color {
+  0%   { background: #7002f6; }
+  20%  { background: #f642c6; }
+  40%  { background: #a600a9; }
+  60%  { background: #7002f6; }
+  80%  { background: #f642c6; }
+  100% { background: #a600a9; }
+}
+
+/* body {
+  background: #33CCCC; /* Fallback */
+  /* animation: color 15s infinite linear; */
+  /* text-align: center; */
+  /* padding: 2em; */
+
+
 .App {
   text-align: center;
 }
 
 .App-header {
   background-image: url(/Users/m.madaras/Desktop/bocacode/final-proj-frontend/src/trees.png);
-  background-color: #efbb0f;
-  min-height: 10vh;
+  background: #33CCCC; /* Fallback */
+  animation: color 12s infinite linear;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +48,11 @@
 
 #BKC {
   background-image: url(/Users/m.madaras/Desktop/bocacode/final-proj-frontend/src/trees.png);
-  background-color: hsl(299, 90%, 52%);
+  background-color: hsl(299, 90%, 52%); 
+  background: #33CCCC; /* Fallback */
+  animation: color 9s infinite linear;
+  text-align: center;
+  padding: 2em;
 }
 
 .add-goal {

@@ -29,6 +29,7 @@ function App() {
           <Menu.Item key="1">Goals</Menu.Item>
           <Menu.Item key="2">Login</Menu.Item>
           <Menu.Item key="3">Sign Up</Menu.Item>
+          <Menu.Item key="4">Logout</Menu.Item>
         </Menu>
       </Header>
       <Content
