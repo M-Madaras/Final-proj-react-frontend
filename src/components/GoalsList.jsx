@@ -14,8 +14,8 @@ export default function TodoList({ goallist, setGoalList, token }) {
       }
     })
       .then(results => results.json())
-      .then(tasks => {
-        setGoalList(tasks);
+      .then(goals => {
+        setGoalList(goals);
         setLoading(false);
         setError('');
       })
@@ -50,16 +50,3 @@ export default function TodoList({ goallist, setGoalList, token }) {
     </>
   )
 }
-{/* 
-    )
-    if (!goallist) {
-        return <h2>No Goals Have Been set!</h2>
-    }
-    <ul>
-        {goallist.map(goal => (
-            <li key={goal.id}>
-                {goal.goal}
-            </li>  
-        ))}
-    </ul>
-} */} 

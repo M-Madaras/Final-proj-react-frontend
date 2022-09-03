@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Layout, Menu } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Layout, Menu, Avatar } from 'antd';
 import GoalList from './components/GoalsList';
 import AddGoal from './components/AddGoal';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import GifHeader from './components/Header1';
 import './App.css';
-import './components/Header1'
+
+
 
 const { Header, Content, Footer } = Layout;
 
@@ -21,15 +23,18 @@ function App() {
   }, [setToken]);
   return (
     <Layout className="layout">
+      
       <Header>
         <Menu
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['1']}>
+      
+      <Avatar size={64} icon={<UserOutlined />} />
+          <Menu.Item key="0">Sign Up</Menu.Item>
           <Menu.Item key="1">Goals</Menu.Item>
           <Menu.Item key="2">Login</Menu.Item>
-          <Menu.Item key="3">Sign Up</Menu.Item>
-          <Menu.Item key="4">Logout</Menu.Item>
+          <Menu.Item key="3">Logout</Menu.Item>
         </Menu>
       </Header>
       <Content
@@ -56,8 +61,6 @@ function App() {
       </Footer>
       <div>
         <GifHeader />
-        {/* <GoalList goallist={goallist} setGoalList={setGoalList} /> */}
-        {/* <AddGoal setGoalList={setGoalList} /> */}
       </div>
 
     </Layout>
@@ -65,3 +68,5 @@ function App() {
 }
 
 export default App;
+
+
