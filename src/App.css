@@ -15,6 +15,7 @@
   100% { background: #a600a9; }
 }
 
+
 body {
   background: #f348ce; /* Fallback */
    animation: color 15s infinite linear; 

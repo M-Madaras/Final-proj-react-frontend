@@ -1,4 +1,6 @@
-import { List, Switch } from 'antd';
+import { List, Slider, Switch } from 'antd';
+import Delete from './Delete';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 export default function GoalsCard({ token, item, setError, setLoading, setGoalList }) {
   const handleSwitch = () => {
@@ -28,12 +30,11 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
   return (
     <List.Item key={item.id}>
       <List.Item.Meta
+  avatar={<Switch/>}
         title={<p>{item.goal}</p>}
         />
+        <EditOutlined />
+        <DeleteOutlined />
     </List.Item>
   )
 }
-// avatar={<Switch
-//     onChange={() => handleSwitch()}
-//     checked={item.done}
-//   />}
