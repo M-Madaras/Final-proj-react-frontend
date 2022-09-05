@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { List, Alert } from 'antd';
 import GoalsCard from './GoalsCard';
 
-export default function TodoList({ goallist, setGoalList, token }) {
+
+export default function TodoList({  goallist, setGoalList, token }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   // call the api and use setTasklist to fill in state...
@@ -23,7 +24,7 @@ export default function TodoList({ goallist, setGoalList, token }) {
         setError(err.message);
         setLoading(false);
       })
-  }, [token, setGoalList, setLoading, setError]);
+  }, [token, setGoalList,  setLoading, setError]);
   return (
     <>
       {(error && token) && <Alert
@@ -34,8 +35,10 @@ export default function TodoList({ goallist, setGoalList, token }) {
       />}
       <div className='goal-list'>
         <List
+        size="large"
+        loading={loading}
+        bordered
           dataSource={goallist}
-          loading={loading}
           renderItem={(item) => (
             <GoalsCard
               key={item.id}
