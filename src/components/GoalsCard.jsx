@@ -28,12 +28,12 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
   return (
     <List.Item key={item.id}>
       <List.Item.Meta
-        avatar={<Switch
-            onChange={() => handleSwitch()}
-            checked={item.done}
-          />}
         title={<p>{item.goal}</p>}
-      />
+        />
     </List.Item>
   )
 }
+// avatar={<Switch
+//     onChange={() => handleSwitch()}
+//     checked={item.done}
+//   />}

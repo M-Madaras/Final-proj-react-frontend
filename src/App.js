@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Layout, Menu, Avatar, TimePicker, Space } from 'antd';
+import { Layout, Menu, Avatar, Space } from 'antd';
 import GoalList from './components/GoalsList';
 import AddGoal from './components/AddGoal';
 import SignUp from './components/SignUp';
@@ -34,7 +34,7 @@ function App() {
       <Avatar size={64} icon={<UserOutlined />} />
       <Timer/>
       <Space>
-        Welcome To My Goal Setter App
+         -  Welcome To My Goal Setter App -
       </Space>
           <Menu.Item key="0">Sign Up</Menu.Item>
           <Menu.Item key="1">Goals</Menu.Item>
