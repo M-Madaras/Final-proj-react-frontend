@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Layout, Menu, Avatar, Space, Divider } from 'antd';
-import GoalList from './components/GoalsList';
-import AddGoal from './components/AddGoal';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
-import GifHeader from './components/Header1';
-import DropdownBar from './components/Dropdown';
+import GoalList from './components/Main/GoalsList';
+import AddGoal from './components/Main/AddGoal';
+import SignUp from './components/scenes/SignUp';
+import Login from './components/scenes/Login';
+import GifHeader from './components/Main/Header1';
+import DropdownBar from './components/Main/Dropdown';
 import './App.css';
 
 

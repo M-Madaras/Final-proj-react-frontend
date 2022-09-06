@@ -1,5 +1,4 @@
 import { List, Checkbox } from 'antd';
-import Delete from './extra/Delete'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 const CheckboxGroup = Checkbox.Group;
 
