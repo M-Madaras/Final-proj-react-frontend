@@ -1,19 +1,58 @@
 @import 'antd/dist/antd.css';
 
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: calc(1.5rem * var(--smaller));
+  }
+
+  li {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+
+  li span {
+    font-size: calc(3.375rem * var(--smaller));
+  }
+}
+
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
 
 @keyframes color {
-  0%   { background: #7002f6; }
-  20%  { background: #f642c6; }
-  40%  { background: #a600a9; }
-  60%  { background: #7002f6; }
-  80%  { background: #f642c6; }
-  100% { background: #a600a9; }
+  0% {
+    background: #7002f6;
+  }
+
+  20% {
+    background: #f642c6;
+  }
+
+  40% {
+    background: #a600a9;
+  }
+
+  60% {
+    background: #7002f6;
+  }
+
+  80% {
+    background: #f642c6;
+  }
+
+  100% {
+    background: #a600a9;
+  }
 }
 
 .site-layout-content {
@@ -21,6 +60,7 @@
   padding: 24px;
   background: #fff;
 }
+
 #components-layout-demo-top .logo {
   float: left;
   width: 120px;
@@ -28,6 +68,7 @@
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
 }
+
 .ant-row-rtl #components-layout-demo-top .logo {
   float: right;
   margin: 16px 0 16px 24px;
@@ -36,9 +77,10 @@
 
 
 body {
-  background: #f348ce; /* Fallback */
-   animation: color 15s infinite linear; 
-   text-align: center; 
+  background: #f348ce;
+  /* Fallback */
+  animation: color 15s infinite linear;
+  text-align: center;
 }
 
 
@@ -47,7 +89,8 @@ body {
 }
 
 .App-header {
-  background: #33CCCC; /* Fallback */
+  background: #33CCCC;
+  /* Fallback */
   animation: color 12s infinite linear;
   text-align: center;
   display: flex;
@@ -71,8 +114,9 @@ body {
 }
 
 #BKC {
-  background-color: hsl(299, 90%, 52%); 
-  background: #33CCCC; /* Fallback */
+  background-color: hsl(299, 90%, 52%);
+  background: #33CCCC;
+  /* Fallback */
   animation: color 9s infinite linear;
   text-align: center;
   padding: 2em;
@@ -84,7 +128,7 @@ body {
 
 h1 {
   color: black;
-   font-size: calc(20px + 2vmin);
+  font-size: calc(20px + 2vmin);
 }
 
 
@@ -106,7 +150,7 @@ h1 {
   background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
@@ -149,25 +193,34 @@ button {
 
 /* Keyframes */
 @keyframes wiggle {
-  0%, 7% {
+
+  0%,
+  7% {
     transform: rotateZ(0);
   }
+
   15% {
     transform: rotateZ(-15deg);
   }
+
   20% {
     transform: rotateZ(10deg);
   }
+
   25% {
     transform: rotateZ(-10deg);
   }
+
   30% {
     transform: rotateZ(6deg);
   }
+
   35% {
     transform: rotateZ(-4deg);
   }
-  40%, 100% {
+
+  40%,
+  100% {
     transform: rotateZ(0);
   }
 }
@@ -177,10 +230,10 @@ button {
   position: absolute;
   /* left: calc(50% - 3em); */
   top: calc(50% - 2em);
-  
+
   height: 4em;
   width: 7em;
-  
+
   background: #444;
   background: linear-gradient(top, #555, #333);
   border: none;
@@ -192,4 +245,68 @@ button {
   transform-origin: 50% 5em;
 }
 
+h2 {
+  color: whitesmoke;
+}
+
+.container {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+
+}
+
+.li {
+  display: block;
+  font-size: 1.5rem;
+}
+.menu {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.li2 {
+  display: block;
+  font-size: 2.0rem;
+}
+.li4 {
+  display: block;
+  font-size: 4.0rem;
+}
+
+.emoji {
+  display: none;
+  padding: 1rem;
+}
+
+.emoji span {
+  font-size: 4rem;
+  padding: 0 .5rem;
+}
+
+input[type=range] {
+  display: block;
+  margin: 0.9em auto;
+  width: 50%;
+}
+.colorNumber {
+  display: block;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.sliders {
+  margin: 30vh auto;
+}
 

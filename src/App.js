@@ -14,10 +14,52 @@ import './App.css';
 
 const { Header, Content, Footer } = Layout;
 
+
 function App() {
   const [goallist, setGoalList] = useState();
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
+
+  (function timer() {
+    const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+    // the current clock is set for a yearly reset at new years
+    let today = new Date(),
+      dd = String(today.getDate()).padStart(2, "0"),
+      mm = String(today.getMonth() + 1).padStart(2, "0"),
+      yyyy = today.getFullYear(),
+      nextYear = yyyy + 1,
+      dayMonth = "12/30/",
+      GoalCountdown = dayMonth + yyyy;
+
+    today = mm + "/" + dd + "/" + yyyy;
+    if (today > GoalCountdown) {
+      GoalCountdown = dayMonth + nextYear;
+    }
+    //end
+    const countDown = new Date(GoalCountdown).getTime(),
+      x = setInterval(function () {
+        const now = new Date().getTime(),
+          distance = countDown - now;
+
+        (document.getElementById("days").innerText = Math.floor(distance / day));
+        (document.getElementById("hours").innerText = Math.floor(
+          (distance % day) / hour
+        ));
+        (document.getElementById("minutes").innerText = Math.floor(
+          (distance % hour) / minute
+        ));
+        (document.getElementById("seconds").innerText = Math.floor(
+          (distance % minute) / second
+        ));
+        //seconds
+      }, 0);
+
+  })();
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setToken(localStorage.getItem('token'))
@@ -36,22 +78,29 @@ function App() {
 
             <Space split={<Divider type="vertical" />}>
               <DropdownBar />
+
+              <Avatar size={48} icon={<UserOutlined />} />
+              <br/>
+              <br/>
+              <br/>
              
-              <Avatar size={64} icon={<UserOutlined />} />
+              <h2>-  Welcome To My Goal Setter App -</h2>
               
-              -  Welcome To My Goal Setter App -
-             
+              <br/>
+              <br/>
+              <br/>
+
               <Menu.Item key="0">
-                <Link to="/Signup">Sign Up</Link>
+                <Link className='li2' to="/Signup">Sign Up</Link>
               </Menu.Item>
               <Menu.Item key="1">
-                <Link to="/">Goals</Link>
+                <Link className='li2' to="/">Goals</Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link to="/Login">Login</Link>
+                <Link className='li2' to="/Login">Login</Link>
               </Menu.Item>
               <Menu.Item key="3">
-                <Link to="/Logout">Logout</Link>
+                <Link className='li2' to="/Logout">Logout</Link>
               </Menu.Item>
             </Space>
           </Menu>
@@ -79,13 +128,41 @@ function App() {
         }}
       >
       </Footer>
+
       <div>
+        <div class="container">
+          <h1 id="headline">Countdown</h1>
+          <div id="countdown">
+            <ul>
+              <li><span className='li4' id="days"></span>days</li>
+              <li><span className='li4' id="hours"></span>Hours</li>
+              <li><span className='li4' id="minutes"></span>Minutes</li>
+              <li><span className='li4' id="seconds"></span>Seconds</li>
+            </ul>
+          </div>
+          <div id="content" class="emoji">
+            <span>🥳</span>
+            <span>🎉</span>
+            <span>🎂</span>
+          </div>
+        </div>
         <GifHeader />
       </div>
+      <container>
+      <div class="sliders">
+  <div class="colorNumber"><p>(255, 255, 255)</p></div>
+  <input id="red" type="range" min="0" max="255" step="1" value ="255" />
+  <input id="green" type ="range" min ="0" max="255" step ="1" value ="255"/>
+  <input id="blue" type ="range" min ="0" max="255" step ="1" value ="255"/>
+  
+</div>
+      </container>
+      
 
     </Layout>
   );
 }
+
 
 export default App;
 

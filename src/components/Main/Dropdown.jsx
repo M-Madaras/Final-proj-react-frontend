@@ -2,7 +2,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 import React from 'react';
 const menu = (
-  <Menu
+  <Menu 
     items={[
       {
         label: <a href="https://www.antgroup.com">Edit Avatar PlaceHolder</a>,
@@ -18,7 +18,7 @@ const menu = (
 );
 
 const DropdownBar = () => (
-  <Dropdown overlay={menu} trigger={['click']}>
+  <Dropdown   overlay={menu} trigger={['click']}>
     <a onClick={(e) => e.preventDefault()}>
       <Space>
         Customize

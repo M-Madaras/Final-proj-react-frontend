@@ -35,8 +35,8 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
   avatar={<Checkbox/>}
         title={<p>{item.goal}</p>}
         />
-        <EditOutlined />
-        <DeleteOutlined  style={{ color: "red", marginLeft: 12}} />
+        <EditOutlined className='li' />
+        <DeleteOutlined className='li' style={{ color: "red", marginLeft: 12}} />
     </List.Item>
   )
 }
