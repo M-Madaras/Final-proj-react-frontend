@@ -5,7 +5,7 @@ const menu = (
   <Menu
     items={[
       {
-        label: <a href="https://www.antgroup.com">Edit Color Place Holder</a>,
+        label: <a href="https://www.antgroup.com">Edit Avatar PlaceHolder</a>,
         key: '0',
       },
       {

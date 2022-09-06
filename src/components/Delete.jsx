@@ -1,12 +1,20 @@
-import { Button } from 'antd';
-import React from 'react';
+// import { Button } from 'antd';
+// import React from 'react';
 
-const Delete = () => (
-  <>
-    <Button type="primary" danger>
-     Delete
-    </Button>
-  </>
-);
+// import { firestore } from "firebase-admin"
 
-export default Delete;
+// const Delete = () => 
+//   <>
+//     <Button type="primary" danger>
+//      Delete
+//     </Button>
+//   </>
+// ;
+
+// export default Delete;
+
+// export default deleteGoal = (goal) => {
+//          firebase
+//          .firestore()
+//          .collection('goals')
+// }

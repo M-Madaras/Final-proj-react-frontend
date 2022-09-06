@@ -34,7 +34,7 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
         title={<p>{item.goal}</p>}
         />
         <EditOutlined />
-        <DeleteOutlined />
+        <DeleteOutlined  style={{ color: "red", marginLeft: 12}} />
     </List.Item>
   )
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { BrowserRouter, Link, Routes } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import { Layout, Menu, Avatar, Space, Divider } from 'antd';
 import GoalList from './components/GoalsList';
 import AddGoal from './components/AddGoal';
@@ -33,10 +33,12 @@ function App() {
           mode="horizontal"
           defaultSelectedKeys={['1']}
           >
+
       <Space split={<Divider type="vertical" />}>
       <DropdownBar/>
       <Avatar size={64} icon={<UserOutlined />} />
       <Timer/>
+
          -  Welcome To My Goal Setter App -
           
           <Menu.Item key="0">
