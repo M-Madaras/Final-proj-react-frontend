@@ -1,6 +1,9 @@
-import { List, Slider, Switch } from 'antd';
-import Delete from './Delete';
+import { List, Checkbox } from 'antd';
+import Delete from './extra/Delete'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+const CheckboxGroup = Checkbox.Group;
+
+
 
 export default function GoalsCard({ token, item, setError, setLoading, setGoalList }) {
   const handleSwitch = () => {
@@ -30,7 +33,7 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
   return (
     <List.Item key={item.id}>
       <List.Item.Meta
-  avatar={<Switch/>}
+  avatar={<Checkbox/>}
         title={<p>{item.goal}</p>}
         />
         <EditOutlined />

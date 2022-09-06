@@ -1,7 +1,6 @@
 @import 'antd/dist/antd.css';
 
 
-
 @keyframes glowing {
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
@@ -192,3 +191,5 @@ button {
   font-size: 1em;
   transform-origin: 50% 5em;
 }
+
+

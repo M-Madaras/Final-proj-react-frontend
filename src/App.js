@@ -7,9 +7,9 @@ import AddGoal from './components/AddGoal';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import GifHeader from './components/Header1';
-import './App.css';
-import Timer from './components/Timer';
 import DropdownBar from './components/Dropdown';
+import './App.css';
+
 
 
 const { Header, Content, Footer } = Layout;
@@ -26,37 +26,37 @@ function App() {
   return (
     <Layout className="layout">
       <BrowserRouter>
-      <Header>
-        
-        <Menu 
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['1']}
+        <Header>
+
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['1']}
           >
 
-      <Space split={<Divider type="vertical" />}>
-      <DropdownBar/>
-      <Avatar size={64} icon={<UserOutlined />} />
-      <Timer/>
+            <Space split={<Divider type="vertical" />}>
+              <DropdownBar />
+             
+              <Avatar size={64} icon={<UserOutlined />} />
+              
+              -  Welcome To My Goal Setter App -
+             
+              <Menu.Item key="0">
+                <Link to="/Signup">Sign Up</Link>
+              </Menu.Item>
+              <Menu.Item key="1">
+                <Link to="/">Goals</Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/Login">Login</Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/Logout">Logout</Link>
+              </Menu.Item>
+            </Space>
+          </Menu>
 
-         -  Welcome To My Goal Setter App -
-          
-          <Menu.Item key="0">
-            <Link to="/Signup">Sign Up</Link>
-            </Menu.Item>
-          <Menu.Item key="1">
-            <Link to="/">Goals</Link>
-            </Menu.Item>
-          <Menu.Item key="2">
-           <Link to="/Login">Login</Link> 
-            </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="/Logout">Logout</Link>
-            </Menu.Item>
-      </Space>
-        </Menu>
-      
-      </Header>
+        </Header>
       </BrowserRouter>
       <Content
         style={{
