@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { UserOutlined } from '@ant-design/icons';
+import { ContainerFilled, UserOutlined } from '@ant-design/icons';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Layout, Menu, Avatar, Space, Divider } from 'antd';
 import GoalList from './components/Main/GoalsList';
 import AddGoal from './components/Main/AddGoal';
 import SignUp from './components/scenes/SignUp';
+import Logout from './components/scenes/Logout';
 import Login from './components/scenes/Login';
 import GifHeader from './components/Main/Header1';
 import DropdownBar from './components/Main/Dropdown';
+import Navbar from './components/Main/NavBar';
 import './App.css';
-
 
 
 const { Header, Content, Footer } = Layout;
@@ -19,16 +20,10 @@ function App() {
   const [goallist, setGoalList] = useState();
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
-
-  function ChangeBkBtn () {
-    document.querySelector( "button" )
-      .addEventListener( "click", function () {
-        var wrapper = document.querySelector( ".ImageWrapper" );
-        var color = wrapper.style.backgroundColor || "white";
-        wrapper.style.backgroundColor = color === "white" ? "black" : "white"; 
-      } );
-}
-
+  const [isLoggedIn, setisLoggedIn] = useState(false)
+  const [signUpVisible, setSignUpVisible] = useState(false);
+  const [loginVisible, setLoginVisible] = useState(false);
+  const [logoutVisible, setLogoutVisible] = useState(false);
 
 
   (function timer() {
@@ -71,24 +66,33 @@ function App() {
 
   })();
 
+
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setToken(localStorage.getItem('token'))
     }
   }, [setToken]);
   return (
-    <Layout className="layout">
-      <BrowserRouter>
-        <Header>
+    <div>
 
+       {/* <SignUp visible={signUpVisible} setVisible={setSignUpVisible} setIsUser = {setIsUser}setToken={setToken} />
+        <Login visible={loginVisible} setVisible={setLoginVisible} setIsUser = {setIsUser}setToken={setToken} setIsLoggedIn = {setisLoggedIn}/>
+        <Logout visible={logoutVisible} setVisible={setLogoutVisible} /> */}
+   
+    <Layout className="layout">
+      
+        {isUser? <h1>Hello {isUser}</h1> : <h1>Guest</h1>}
+      
+      <BrowserRouter>
+    <Header>
           <Menu
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={['1']}
           >
-
-            <Space split={<Divider type="vertical" />}>
               <DropdownBar />
+              <br/>
+              <br/>
 
               <Avatar size={48} icon={<UserOutlined />} />
               <br />
@@ -96,23 +100,22 @@ function App() {
               <br />
               <br />
 
-              <Menu.Item key="0">
-                <Link className='li2' to="/Signup">Sign Up</Link>
-              </Menu.Item>
-              <Menu.Item key="1">
-                <Link className='li2' to="/">Goals</Link>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Link className='li2' to="/Login">Login</Link>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <Link className='li2' to="/Logout">Logout</Link>
-              </Menu.Item>
-            </Space>
+              
+          
+            <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
+              Sign up
+            </Menu.Item>
+            <Menu.Item onClick={() => setLoginVisible(!loginVisible)} key="2">
+              Login
+            </Menu.Item>
+            <Menu.Item onClick={() => setLogoutVisible(!logoutVisible)} key="3">
+              Logout
+            </Menu.Item>
           </Menu>
 
-        </Header>
+          </Header>
       </BrowserRouter>
+     
       <Content
         style={{
           padding: '0 50px',
@@ -162,6 +165,7 @@ function App() {
       </div>
 
     </Layout>
+    </div>
   );
 }
 

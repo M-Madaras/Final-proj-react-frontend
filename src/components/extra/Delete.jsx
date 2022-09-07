@@ -1,3 +1,2 @@
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { useEffect, useState } from "react";
-
+import { getApp } from "firebase-admin/app";
+import { getFireStore } from "@firebase/firestore"

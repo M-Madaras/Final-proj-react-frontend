@@ -1,8 +1,8 @@
 import { Modal, Form, Input, Button } from 'antd';
 
-export default function Login({ 
+export default function Login({
   setToken,
-  setIsUser, 
+  setIsUser,
   user,
   visible,
   setVisible
@@ -27,22 +27,33 @@ export default function Login({
     // setToken
   }
   return (
-    <Modal  onCancel={() => setVisible(false)}
-        closable={true}
-        visible={visible}
-        title="Login"
-        footer={null}>
-      <Form onFinish={handleLogin} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
-        <Form.Item label="Email" name="email">
+    <Modal onCancel={() => setVisible(false)}
+      closable={true}
+      visible={visible}
+      title="Login"
+      footer={null}>
+      <Form onFinish={handleLogin}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}>
+        <Form.Item
+          label="Email"
+          name="email">
           <Input />
         </Form.Item>
-        <Form.Item label="Password" name="password">
+        <Form.Item
+          label="Password"
+          name="password">
           <Input.Password />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType='submit'>Login</Button>
         </Form.Item>
-        <p>Not a user? <Button onClick={() => setIsUser(false)} type={'link'}>Sign Up</Button></p>
+        <p>
+          Not a user?{" "}
+          <Button onClick={() => setIsUser(false)} type={'link'}>
+            Sign Up
+          </Button>
+        </p>
       </Form>
     </Modal>
   )

@@ -21,7 +21,13 @@ export default function SignUp({ setToken, setIsUser }) {
   }
   return (
     <Modal title="Create Account" visible closable={false} footer={null}>
-      <Form onFinish={handleSignUp} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
+
+      <Form
+        onFinish={handleSignUp}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+      >
+
         <Form.Item label="Email" name="email">
           <Input />
         </Form.Item>
@@ -31,7 +37,12 @@ export default function SignUp({ setToken, setIsUser }) {
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType='submit'>Sign up</Button>
         </Form.Item>
-        <p>Already a user? <Button onClick={() => setIsUser(true)} type={'link'}>Login</Button></p>
+        <p>
+          Already a user?
+          <Button onClick={() => setIsUser(true)} type={'link'}>
+            Login
+          </Button></p>
+
       </Form>
     </Modal>
   )
