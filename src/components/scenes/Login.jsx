@@ -1,6 +1,13 @@
 import { Modal, Form, Input, Button } from 'antd';
 
-export default function Login({ setToken, setIsUser }) {
+export default function Login({ 
+  setToken,
+  setIsUser, 
+  user,
+  visible,
+  setVisible
+}) {
+
   const handleLogin = ({ email, password }) => {
     // post request to api/users
     fetch('https://mtm-final-proj.web.app/users/login', {
@@ -20,7 +27,11 @@ export default function Login({ setToken, setIsUser }) {
     // setToken
   }
   return (
-    <Modal title="Login" visible closable={false} footer={null}>
+    <Modal  onCancel={() => setVisible(false)}
+        closable={true}
+        visible={visible}
+        title="Login"
+        footer={null}>
       <Form onFinish={handleLogin} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
         <Form.Item label="Email" name="email">
           <Input />

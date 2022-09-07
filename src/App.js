@@ -92,12 +92,7 @@ function App() {
 
               <Avatar size={48} icon={<UserOutlined />} />
               <br />
-              <br />
-              <br />
-
               <h2>-  Welcome To My Goal Setter App -</h2>
-
-              <br />
               <br />
               <br />
 

@@ -125,6 +125,7 @@ body {
   padding: 2px 0 0 0;
 }
 
+
 h1 {
   color: black;
   font-size: calc(20px + 2vmin);
@@ -226,7 +227,7 @@ button {
 
 
 button {
-  position: absolute;
+  /* position: absolute; */
   /* left: calc(50% - 3em); */
   top: calc(50% - 2em);
 
@@ -275,11 +276,11 @@ li {
 
 .li2 {
   display: block;
-  font-size: 2.0rem;
+  font-size: 1.5rem;
 }
 .li4 {
   display: block;
-  font-size: 4.0rem;
+  font-size: 3.5rem;
 }
 
 .emoji {
