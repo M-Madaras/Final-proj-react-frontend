@@ -20,6 +20,17 @@ function App() {
   const [token, setToken] = useState();
   const [isUser, setIsUser] = useState(false);
 
+  function ChangeBkBtn () {
+    document.querySelector( "button" )
+      .addEventListener( "click", function () {
+        var wrapper = document.querySelector( ".ImageWrapper" );
+        var color = wrapper.style.backgroundColor || "white";
+        wrapper.style.backgroundColor = color === "white" ? "black" : "white"; 
+      } );
+}
+
+
+
   (function timer() {
     const second = 1000,
       minute = second * 60,
@@ -80,15 +91,15 @@ function App() {
               <DropdownBar />
 
               <Avatar size={48} icon={<UserOutlined />} />
-              <br/>
-              <br/>
-              <br/>
-             
+              <br />
+              <br />
+              <br />
+
               <h2>-  Welcome To My Goal Setter App -</h2>
-              
-              <br/>
-              <br/>
-              <br/>
+
+              <br />
+              <br />
+              <br />
 
               <Menu.Item key="0">
                 <Link className='li2' to="/Signup">Sign Up</Link>
@@ -143,21 +154,17 @@ function App() {
           <div id="content" class="emoji">
             <span>🥳</span>
             <span>🎉</span>
-            <span>🎂</span>
           </div>
         </div>
         <GifHeader />
-      </div>
-      <container>
-      <div class="sliders">
-  <div class="colorNumber"><p>(255, 255, 255)</p></div>
-  <input id="red" type="range" min="0" max="255" step="1" value ="255" />
-  <input id="green" type ="range" min ="0" max="255" step ="1" value ="255"/>
-  <input id="blue" type ="range" min ="0" max="255" step ="1" value ="255"/>
-  
-</div>
-      </container>
+          
+          <div class="ImageWrapper">
+            <img src="https://pbs.twimg.com/media/CjzfmDJUYAA9Mmv.png" />
+          </div>
       
+       
+
+      </div>
 
     </Layout>
   );

@@ -1,4 +1,5 @@
 export default function GifHeader() {
+   
    return (
       <>
          <div id='BKC'>
