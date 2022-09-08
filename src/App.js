@@ -94,10 +94,7 @@ function App() {
               <DropdownBar />
             
               <Avatar size={48} icon={<UserOutlined />} />
-           
               <h2>-  Welcome To My Goal Setter App -</h2>
-             
-          
             <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
               Sign up
             </Menu.Item>
