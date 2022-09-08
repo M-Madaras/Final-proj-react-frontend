@@ -1,6 +1,12 @@
 @import 'antd/dist/antd.css';
 
 @media all and (max-width: 768px) {
+ .App {
+  height: 100%;
+  overflow-x: hide;
+  overflow-y: auto;
+  
+  }
   h1 {
     font-size: calc(1.5rem * var(--smaller));
   }
@@ -228,7 +234,6 @@ h2 {
 button {
   animation: wiggle 2s linear infinite;
 }
-
 button {
   /* position: absolute; */
   /* left: calc(50% - 3em); */

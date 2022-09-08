@@ -10,10 +10,10 @@ import Login from './components/scenes/Login';
 import GifHeader from './components/Main/Header1';
 import DropdownBar from './components/Main/Dropdown';
 import Navbar from './components/Main/NavBar';
+import Footer from './components/Main/Footer';
 import './App.css';
 
-
-const { Header, Content, Footer } = Layout;
+const { Header, Content} = Layout;
 
 
 function App() {
@@ -125,13 +125,6 @@ function App() {
             : null}
         </div>
       </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-        >
-      </Footer>
-
       <div countDown>
         <div class="container">
           <h1 id="headline">Countdown</h1>
@@ -154,8 +147,7 @@ function App() {
             <img src="https://pbs.twimg.com/media/CjzfmDJUYAA9Mmv.png" />
           </div>
       
-       
-
+    <Footer />
       </div>
 
     </Layout>
