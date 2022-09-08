@@ -75,21 +75,22 @@ function App() {
   return (
     <div>
 
-       {/* <SignUp visible={signUpVisible} setVisible={setSignUpVisible} setIsUser = {setIsUser}setToken={setToken} />
+       {/* <SignUp visible={signUpVisible} setVisible={setSignUpVisible} setIsUser = {setIsUser}setToken={setToken} /> */}
         <Login visible={loginVisible} setVisible={setLoginVisible} setIsUser = {setIsUser}setToken={setToken} setIsLoggedIn = {setisLoggedIn}/>
-        <Logout visible={logoutVisible} setVisible={setLogoutVisible} /> */}
-   
+        <Logout visible={logoutVisible} setVisible={setLogoutVisible} />
+
     <Layout className="layout">
       
         <h1 className='App-header'>!!!The Boca Code Goal Setter App!!!</h1>
-        {isUser? <h1><img className='tropical' src="/images/MyLogo.png" alt="trees.png" />Hello {isUser}</h1> : <h1><img className='tropical' src="/images/MyLogo.png" alt="trees.png" />Welcome Guest!!</h1>}
+        {isUser? <h1><img className='tropical' src="/images/MyLogo.png" alt="trees.png" />Hello {isUser}</h1> : <h1 className='Bar'><img className='tropical' src="/images/MyLogo.png" alt="trees.png" />Welcome Guest!!</h1>}
       <BrowserRouter>
     <Header>
+   <Space>
           <Menu
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={['1']}
-          >
+            >
               <DropdownBar />
             
               <Avatar size={48} icon={<UserOutlined />} />
@@ -107,6 +108,7 @@ function App() {
               Logout
             </Menu.Item>
           </Menu>
+      </Space>
 
           </Header>
       </BrowserRouter>
@@ -115,14 +117,14 @@ function App() {
         style={{
           padding: '0 50px',
         }}
-      >
+        >
         <div className="site-layout-content">
           <GoalList token={token} goallist={goallist} setGoalList={setGoalList} />
           <AddGoal token={token} setGoalList={setGoalList} />
           {!token ?
             isUser
-              ? <Login setIsUser={setIsUser} setToken={setToken} />
-              : <SignUp setIsUser={setIsUser} setToken={setToken} />
+            ? <Login setIsUser={setIsUser} setToken={setToken} />
+            : <SignUp setIsUser={setIsUser} setToken={setToken} />
             : null}
         </div>
       </Content>
@@ -130,7 +132,7 @@ function App() {
         style={{
           textAlign: 'center',
         }}
-      >
+        >
       </Footer>
 
       <div>

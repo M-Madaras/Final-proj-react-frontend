@@ -14,7 +14,9 @@
     display: flex;
     padding: 0.25rem;
   }
-  
+  .Bar{
+    background-color: rgb(217, 207, 228);
+  }
   
   .container-bar {
     display: flex;
@@ -27,7 +29,6 @@
     padding: 0.5rem;
   }
   .tropical {
-    background-color: blueviolet;
     width: 10%;
     height: 80px;
     object-fit: cover;
