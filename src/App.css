@@ -14,6 +14,38 @@
   }
 }
 
+@keyframes wiggle {
+
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+
+  15% {
+    transform: rotateZ(-15deg);
+  }
+
+  20% {
+    transform: rotateZ(10deg);
+  }
+
+  25% {
+    transform: rotateZ(-10deg);
+  }
+
+  30% {
+    transform: rotateZ(6deg);
+  }
+
+  35% {
+    transform: rotateZ(-4deg);
+  }
+
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}
 
 @keyframes glowing {
   0% {
@@ -86,7 +118,11 @@ body {
 .App {
   text-align: center;
 }
-
+.Icon {
+   border-image: 0%;
+   width: 30;
+   height: 40;
+}
 .App-header {
   background: #33CCCC;
   /* Fallback */
@@ -112,6 +148,15 @@ body {
   font-size: calc(20px + 2vmin);
 }
 
+h1 {
+  color: black;
+  font-size: calc(20px + 2vmin);
+}
+
+h2 {
+  color: whitesmoke;
+}
+
 #BKC {
   background-color: hsl(299, 90%, 52%);
   background: #33CCCC;
@@ -124,13 +169,6 @@ body {
 .add-goal {
   padding: 2px 0 0 0;
 }
-
-
-h1 {
-  color: black;
-  font-size: calc(20px + 2vmin);
-}
-
 
 .glow-on-hover {
   width: 220px;
@@ -191,41 +229,6 @@ button {
   animation: wiggle 2s linear infinite;
 }
 
-/* Keyframes */
-@keyframes wiggle {
-
-  0%,
-  7% {
-    transform: rotateZ(0);
-  }
-
-  15% {
-    transform: rotateZ(-15deg);
-  }
-
-  20% {
-    transform: rotateZ(10deg);
-  }
-
-  25% {
-    transform: rotateZ(-10deg);
-  }
-
-  30% {
-    transform: rotateZ(6deg);
-  }
-
-  35% {
-    transform: rotateZ(-4deg);
-  }
-
-  40%,
-  100% {
-    transform: rotateZ(0);
-  }
-}
-
-
 button {
   /* position: absolute; */
   /* left: calc(50% - 3em); */
@@ -245,16 +248,11 @@ button {
   transform-origin: 50% 5em;
 }
 
-h2 {
-  color: whitesmoke;
-}
-
 .container {
   color: #333;
   margin: 0 auto;
   text-align: center;
 }
-
 
 li {
   display: inline-block;
@@ -269,6 +267,7 @@ li {
   display: block;
   font-size: 1.5rem;
 }
+
 .menu {
   display: block;
   font-size: 1.5rem;
@@ -278,6 +277,7 @@ li {
   display: block;
   font-size: 1.5rem;
 }
+
 .li4 {
   display: block;
   font-size: 3.5rem;
@@ -298,6 +298,7 @@ input[type=range] {
   margin: 0.9em auto;
   width: 50%;
 }
+
 .colorNumber {
   display: block;
   text-align: center;
@@ -309,4 +310,3 @@ input[type=range] {
 .sliders {
   margin: 30vh auto;
 }
-

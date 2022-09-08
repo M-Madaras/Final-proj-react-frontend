@@ -81,8 +81,8 @@ function App() {
    
     <Layout className="layout">
       
-        {isUser? <h1>Hello {isUser}</h1> : <h1>Guest</h1>}
-      
+        <h1 className='App-header'>!!!The Boca Code Goal Setter App!!!</h1>
+        {isUser? <h1><img className='tropical' src="/images/MyLogo.png" alt="trees.png" />Hello {isUser}</h1> : <h1><img className='tropical' src="/images/MyLogo.png" alt="trees.png" />Welcome Guest!!</h1>}
       <BrowserRouter>
     <Header>
           <Menu
@@ -91,16 +91,11 @@ function App() {
             defaultSelectedKeys={['1']}
           >
               <DropdownBar />
-              <br/>
-              <br/>
-
+            
               <Avatar size={48} icon={<UserOutlined />} />
-              <br />
+           
               <h2>-  Welcome To My Goal Setter App -</h2>
-              <br />
-              <br />
-
-              
+             
           
             <Menu.Item onClick={() => setSignUpVisible(!signUpVisible)} key="1">
               Sign up

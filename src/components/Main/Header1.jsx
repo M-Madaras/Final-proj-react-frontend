@@ -5,7 +5,7 @@ export default function GifHeader() {
          <div id='BKC'>
             <>
                <header className='App-header'>
-                  <h1 className='App-header'>!!!BOCA CODE GOAL SETTER APP!!!</h1>
+                  <h1 className='App-header'>Time Left Till The New Year🎉🎉🎉</h1>
                </header>
                <h1 id='H1'>👍🏼YOU CAN DO IT!!!</h1>
                <button class="glow-on-hover" type="button" >CSS IS PRETTY COOL</button>
