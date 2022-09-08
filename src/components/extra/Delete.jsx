@@ -21,16 +21,5 @@ export default function DeleteGoal({ setGoalList }) {
         })
         .catch(console.error);
     }
-    return(
-        <div className="add-goal" >
-            <Search
-            value={goal}
-            onChange={e => setGoal(e.target.value)}
-            enterButton="NewGoal"
-            size='Large'
-            onSearch={addGoal}
-            />
-        </div>
-    
-    )
+  
 }
