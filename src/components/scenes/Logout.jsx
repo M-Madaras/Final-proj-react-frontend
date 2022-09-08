@@ -38,10 +38,6 @@ export default function Logout({
         title="Logout"
         footer={null}
       >
-        {/* <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
-        </Modal.Header>
-        <Modal.Body> */}
         <Form
           onFinish={handleLogout}
           labelCol={{ span: 8 }}
@@ -51,7 +47,7 @@ export default function Logout({
             Log out
           </Button>
         </Form>
-        {/* </Modal.Body> */}
+       
       </Modal>
     </>
   );
