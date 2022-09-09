@@ -1,6 +1,6 @@
 import '../../styles/Footer.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faYoutube,faInstagram, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import {  faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
 
 export default function Footer(){

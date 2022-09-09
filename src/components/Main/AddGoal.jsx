@@ -7,21 +7,20 @@ const { Search } = Input;
 export default function AddGoal({ setGoalList, token }) {
     const [goal, setGoal] = useState('');
     const addGoal = () => {
+        if(!goal) return;
         fetch('https://mtm-final-proj.web.app/goals',{
         // fetch('http://localhost:5055/goals',{
             method: 'POST',
-            mode: 'cors',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': token,
+            //   'Authorization': token,
             },
             body: JSON.stringify({ goal, done: false })
         })
         .then(results => results.json())
         .then(data => {
-            Event.preventDefault();
             setGoalList(data);
-            setGoal('')
+            setGoal('');
         })
         .catch(console.error);
     }

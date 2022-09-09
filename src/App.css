@@ -243,7 +243,6 @@ button {
   width: 7em;
 
   background: #444;
-  background: linear-gradient(top, #555, #333);
   border: none;
   border-top: 3px solid orange;
   border-radius: 0 0 0.2em 0.2em;
