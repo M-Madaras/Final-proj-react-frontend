@@ -36,9 +36,6 @@ export default function GoalsCard({ item, setError, setLoading, setGoalList }) {
         title={<p>{item.goal}</p>}
       />
       <Button>
-        <EditOutlined className='li' style={{ color: "blue", marginLeft: 12 }} />
-      </Button>
-      <Button>
        <DeleteOutlined className='li' style={{ color: "red", marginLeft: 12 }} />
       </Button>
 

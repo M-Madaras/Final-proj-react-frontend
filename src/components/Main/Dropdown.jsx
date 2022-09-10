@@ -5,11 +5,11 @@ const menu = (
   <Menu 
     items={[
       {
-        label: <a href="https://www.antgroup.com"> <TeamOutlined  style={{ color: "Orange", marginLeft: 12}}/>Edit Avatar</a>,
+        label: <a><TeamOutlined  style={{ color: "Orange", marginLeft: 12}}/>Edit Avatar</a>,
         key: '0',
       },
       {
-        label: <a href="https://www.aliyun.com"><FontColorsOutlined  style={{ color: "Green", marginLeft: 12}} />Edit Fontstyle</a>,
+        label: <a><FontColorsOutlined  style={{ color: "Green", marginLeft: 12}} />Edit Fontstyle</a>,
         key: '1',
       },
       
