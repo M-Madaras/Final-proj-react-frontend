@@ -1,20 +1,20 @@
-import { List, Checkbox } from 'antd';
+import { List, Checkbox, Button } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-const CheckboxGroup = Checkbox.Group;
 
 
 
-export default function GoalsCard({ token, item, setError, setLoading, setGoalList }) {
-  const handleSwitch = () => {
+
+
+export default function GoalsCard({ item, setError, setLoading, setGoalList }) {
+  const handleCheck = () => {
     // make a patch request to API
     setLoading(true);
     const body = { done: !item.done };
     fetch(`https://three-do-api-mtm.web.app/goals/${item.id}`, {
-    // fetch(`http://localhost:5555/tasks/${item.id}`, {
+      // fetch(`http://localhost:5555/tasks/${item.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': token,
       },
       body: JSON.stringify(body)
     })
@@ -32,11 +32,16 @@ export default function GoalsCard({ token, item, setError, setLoading, setGoalLi
   return (
     <List.Item key={item.id}>
       <List.Item.Meta
-  avatar={<Checkbox/>}
+        avatar={<Checkbox />}
         title={<p>{item.goal}</p>}
-        />
-        <EditOutlined className='li'  style={{ color: "blue", marginLeft: 12}}/>
-        <DeleteOutlined className='li' style={{ color: "red", marginLeft: 12}} />
+      />
+      <Button>
+        <EditOutlined className='li' style={{ color: "blue", marginLeft: 12 }} />
+      </Button>
+      <Button>
+       <DeleteOutlined className='li' style={{ color: "red", marginLeft: 12 }} />
+      </Button>
+
     </List.Item>
   )
 }

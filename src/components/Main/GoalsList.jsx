@@ -1,9 +1,50 @@
-import { useEffect, useState } from 'react';
-import { List, Alert } from 'antd';
+import { useEffect, useState, React } from 'react';
+import { List, Alert, Button } from 'antd';
 import GoalsCard from './GoalsCard';
 
 
-export default function TodoList({  goallist, setGoalList, token }) {
+function itemAction(action, item, setLoading, setGoalListItems) {
+  setLoading(true)
+  const API_URL = `https://mtm-final-proj.web.app/goals/${item.userId}/${item.id}`
+  const params = (action === 'done')
+    ? {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ done: !item.done })
+    }
+    : {
+      method: 'DELETE'
+    }
+  fetch(API_URL, params)
+  .then(res => res.json())
+  .then(data => {
+    setGoalListItems(data)
+    setLoading(false)
+  })
+  .catch(err => {
+    console.log('error updating item: ', err)
+    setLoading(false)
+  })
+}
+
+function ListItem({ item, setLoading, setGoalListItems }) {
+  const thisClassName = item.done ? 'done' : ''
+  return (
+    <List.Item
+      actions={[
+        <Button primary key="list-done" onClick={() => itemAction('done', item, setLoading, setGoalListItems)}>done</Button>,
+        <Button danger key="list-delete" onClick={() => itemAction('delete', item, setLoading, setGoalListItems)}>delete</Button>,
+      ]}
+      key={item.item}
+      className={thisClassName}>
+      {item.item} </List.Item>
+    )
+}
+
+
+export default function GoalList({  goallist, setGoalList, token }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   // call the api and use setTasklist to fill in state...
@@ -47,6 +88,7 @@ export default function TodoList({  goallist, setGoalList, token }) {
               setLoading={setLoading}
               setGoalList={setGoalList}
               setError={setError} />
+              
           )}
         />
       </div>
