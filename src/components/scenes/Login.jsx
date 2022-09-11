@@ -1,60 +1,86 @@
-import { Modal, Form, Input, Button } from 'antd';
+import { useState } from 'react';
+import { initializeApp } from 'firebase/app';
+import { 
+  createUserWithEmailAndPassword, getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword, 
+  signInWithPopup} from 'firebase/auth';
 
-export default function Login({
-  setToken,
-  setIsUser,
-  user,
-  visible,
-  setVisible
-}) {
+  const firebaseConfig = {
+    apiKey: "AIzaSyCp6FZCpXKcpBYMvUqrAxpqviPcaRvoKH8",
+    authDomain: "mtm-final-proj.firebaseapp.com",
+    projectId: "mtm-final-proj",
+    storageBucket: "mtm-final-proj.appspot.com",
+    messagingSenderId: "891098749462",
+    appId: "1:891098749462:web:39880af7cc95ea9c2bb337",
+    measurementId: "G-RTTR143Z3Q"
+  };
 
-  const handleLogin = ({ email, password }) => {
-    // post request to api/users
-    fetch('https://mtm-final-proj.web.app/users/login', {
-      // fetch('http://localhost:5555/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    })
-      .then(response => response.json())
-      .then(data => {
-        setToken(data.token);
-        localStorage.setItem('token', data.token);
-      })
-      .catch(err => alert(err.message))
-    // setToken
+function Login({ setIsLoggedIn }) {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const connectAuth = async () => {
+    // connect to firebase project
+    const app = initializeApp(firebaseConfig);
+    // connect to Auth
+    return getAuth(app);
   }
+
+  const handleLogin = async () => {
+    const auth = await connectAuth()
+    const user = await signInWithEmailAndPassword(auth, email, password)
+      .catch(err => alert(err.message))
+    if(user) {
+      console.log(user.user)
+      setIsLoggedIn(true)
+    }
+  }
+
+  const handleGoogleLogin = async () => {
+    const auth = await connectAuth()
+    const provider = new GoogleAuthProvider()
+    const user = await signInWithPopup(auth, provider)
+      .catch(err => alert(err.message))
+    if(user) {
+      console.log(user.user)
+      setIsLoggedIn(true)
+    }
+  }
+
+  const handleSignUp = async () => {
+    const auth = await connectAuth()
+    // send email and password to firebase auth
+    const user = await createUserWithEmailAndPassword(auth, email, password)
+      .catch(err => alert(err.message))
+    // if all ok...
+    if(user) {
+      console.log(user.user)
+      setIsLoggedIn(true)
+    }
+  }
+
   return (
-    <Modal onCancel={() => setVisible(false)}
-      closable={true}
-      visible={visible}
-      title="Login"
-      footer={null}>
-      <Form onFinish={handleLogin}
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}>
-        <Form.Item
-          label="Email"
-          name="email">
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Password"
-          name="password">
-          <Input.Password />
-        </Form.Item>
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType='submit'>Login</Button>
-        </Form.Item>
-        <p>
-          Not a user?{" "}
-          <Button onClick={() => setIsUser(false)} type={'link'}>
-            Sign Up
-          </Button>
-        </p>
-      </Form>
-    </Modal>
+    <form onSubmit={(e) => e.preventDefault()}>
+      <label htmlFor="email">
+        Email:
+        <input
+          value={email} onChange={e => setEmail(e.target.value)}
+          name="email" type="email" placeholder="you@there.com" />
+      </label><br />
+      <label htmlFor="password">
+        Password:
+        <input
+          value={password} onChange={e => setPassword(e.target.value)}
+          name="password" type="password" />
+      </label><br />
+      <button onClick={handleLogin}>Login</button>&nbsp;
+      <button onClick={handleSignUp}>Sign Up</button>
+      <br />
+      <button onClick={handleGoogleLogin}>Login with Google</button>
+    </form>
   )
 }
+
+export default Login;
+
