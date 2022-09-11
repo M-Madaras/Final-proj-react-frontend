@@ -1,18 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Layout } from 'antd';
+import { useState } from 'react';
 import Login from './components/scenes/Login';
-import SecretStuff from './components/scenes/SecretStuff';
+import SecretStuff from './components/scenes/GoalApp';
 import './App.css';
 
 
-const { Header, Content} = Layout;
-
 function App() {
-  const [goallist, setGoalList] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <>
       <header>
+        <img className='tropical' src='/images/MyLogo.png' alt='Trees logo'></img>
         <h1>My Goal App</h1>
       </header>
       {isLoggedIn

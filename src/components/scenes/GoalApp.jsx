@@ -1,29 +1,27 @@
 import { useState, useEffect } from 'react';
-import { ContainerFilled, UserOutlined } from '@ant-design/icons';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { Layout, Menu, Avatar, Space, Divider } from 'antd';
+import {  UserOutlined } from '@ant-design/icons';
+import { BrowserRouter } from 'react-router-dom';
+import { Layout, Menu, Avatar, Space } from 'antd';
 import GoalList from '../Main/GoalsList';
 import AddGoal from '../Main/AddGoal';
 import GifHeader from '../Main/Header1';
 import DropdownBar from '../Main/Dropdown';
-import Navbar from '../Main/NavBar';
 import Footer from '../Main/Footer';
-import Timer from '../Main/Timer';
+
+import "../../styles/Navbar.css"
 
 
-const { Header, Content} = Layout;
+const { Content} = Layout;
 
 export default function SecretStuff() {
     const [goallist, setGoalList] = useState();
    
-      <Timer/>
+      
       useEffect(() => {
       }, []);
       return (
         <div>
-    
           
-    
         <Layout className="layout">
           
             <h1 className='App-header'>!!!The Boca Code Goal Setter App!!!</h1>
@@ -76,7 +74,7 @@ export default function SecretStuff() {
             <GifHeader />
               
               <div class="ImageWrapper">
-                <img src="https://pbs.twimg.com/media/CjzfmDJUYAA9Mmv.png" />
+                <img src="https://pbs.twimg.com/media/CjzfmDJUYAA9Mmv.png" alt='galaxy chill' />
               </div>
           
         <Footer />
@@ -84,5 +82,46 @@ export default function SecretStuff() {
     
         </Layout>
         </div>
-      );
+      );  
 }
+ (function timer() {
+  const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+
+  // the current clock is set for a yearly reset at new years
+  let today = new Date(),
+    dd = String(today.getDate()).padStart(2, "0"),
+    mm = String(today.getMonth() + 1).padStart(2, "0"),
+    yyyy = today.getFullYear(),
+    nextYear = yyyy + 1,
+    dayMonth = "01/01/",
+    GoalCountdown = dayMonth + yyyy;
+
+  today = mm + "/" + dd + "/" + yyyy;
+  if (today > GoalCountdown) {
+    GoalCountdown = dayMonth + nextYear;
+  }
+  //end
+  const countDown = new Date(GoalCountdown).getTime(),
+  // eslint-disable-next-line 
+    x = setInterval(
+      function () {
+      const now = new Date().getTime(),
+        distance = countDown - now;
+
+      (document.getElementById("days").innerText = Math.floor(distance / day));
+      (document.getElementById("hours").innerText = Math.floor(
+        (distance % day) / hour
+      ));
+      (document.getElementById("minutes").innerText = Math.floor(
+        (distance % hour) / minute
+      ));
+      (document.getElementById("seconds").innerText = Math.floor(
+        (distance % minute) / second
+      ));
+      //seconds
+    }, 0);
+
+})();

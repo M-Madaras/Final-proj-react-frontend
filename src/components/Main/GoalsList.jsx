@@ -1,8 +1,8 @@
 import { useEffect, useState, React } from 'react';
-import { List, Alert, Button } from 'antd';
+import { List, Alert } from 'antd';
 import GoalsCard from './GoalsCard';
 
-export default function GoalList({  goallist, setGoalList, token }) {
+export default function GoalList({  goallist, setGoalList }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   // call the api and use setTasklist to fill in state...
@@ -10,7 +10,7 @@ export default function GoalList({  goallist, setGoalList, token }) {
     fetch('https://mtm-final-proj.web.app/goals', {
     // fetch('http://localhost:5555/tasks', {
       headers: {
-        'Authorization': token,
+       
       }
     })
       .then(results => results.json())
@@ -23,10 +23,10 @@ export default function GoalList({  goallist, setGoalList, token }) {
         setError(err.message);
         setLoading(false);
       })
-  }, [token, setGoalList,  setLoading, setError]);
+  }, [ setGoalList,  setLoading, setError]);
   return (
     <>
-      {(error && token) && <Alert
+      {(error) && <Alert
         message="Error"
         description={error}
         type="error"
@@ -42,7 +42,6 @@ export default function GoalList({  goallist, setGoalList, token }) {
             <GoalsCard
               key={item.id}
               item={item}
-              token={token}
               setLoading={setLoading}
               setGoalList={setGoalList}
               setError={setError} />
