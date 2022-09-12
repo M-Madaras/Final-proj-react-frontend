@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {  UserOutlined } from '@ant-design/icons';
 import { BrowserRouter } from 'react-router-dom';
-import { Layout, Menu, Avatar, Space } from 'antd';
+import { Layout, Menu, Avatar, Space, Button } from 'antd';
 import GoalList from '../Main/GoalsList';
 import AddGoal from '../Main/AddGoal';
 import GifHeader from '../Main/Header1';
@@ -11,7 +11,7 @@ import Footer from '../Main/Footer';
 import "../../styles/Navbar.css"
 
 
-const { Content} = Layout;
+const { Content, Header} = Layout;
 
 export default function SecretStuff() {
     const [goallist, setGoalList] = useState();
@@ -23,24 +23,31 @@ export default function SecretStuff() {
         <div>
           
         <Layout className="layout">
+
           
             <h1 className='App-header'>!!!The Boca Code Goal Setter App!!!</h1>
           
           <BrowserRouter>
       
-       <Space>
+          <Header>
+       <Space >
               <Menu
                 theme="dark"
                 mode="horizontal"
                 defaultSelectedKeys={['1']}
+                Space 
                 >
                   <DropdownBar />
-                
+                 
                   <Avatar size={48} icon={<UserOutlined />} />
+                 
                   <h2>-  Welcome To My Goal Setter App -</h2>
-             
+                 
+             <Button>Logout</Button>
+
               </Menu>
           </Space>
+                  </Header>
     
             
           </BrowserRouter>

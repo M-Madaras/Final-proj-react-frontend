@@ -4,7 +4,7 @@ import { Input,} from 'antd';
 
 const { Search } = Input;
 
-export default function AddGoal({ setGoalList, token }) {
+export default function AddGoal({ setGoalList}) {
     const [goal, setGoal] = useState('');
     const addGoal = () => {
         if(!goal) return;
@@ -13,7 +13,6 @@ export default function AddGoal({ setGoalList, token }) {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-            //   'Authorization': token,
             },
             body: JSON.stringify({ goal, done: false })
         })
