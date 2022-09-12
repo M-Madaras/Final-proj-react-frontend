@@ -80,9 +80,9 @@ export default function SecretStuff() {
             </div>
             <GifHeader />
               
-              <div class="ImageWrapper">
+              {/* <div class="ImageWrapper">
                 <img src="https://pbs.twimg.com/media/CjzfmDJUYAA9Mmv.png" alt='galaxy chill' />
-              </div>
+              </div> */}
           
         <Footer />
           </div>
