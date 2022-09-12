@@ -24,7 +24,6 @@ export default function SecretStuff() {
           
         <Layout className="layout">
 
-          
             <h1 className='App-header'>!!!🎆The Goal Setter App🎆!!!</h1>
           
           <BrowserRouter>
