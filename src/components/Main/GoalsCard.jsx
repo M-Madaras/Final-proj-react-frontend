@@ -1,11 +1,12 @@
 import { List, Checkbox, Button } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 
 
 
 
 
 export default function GoalsCard({ item, setError, setLoading, setGoalList }) {
+  // eslint-disable-next-line
   const handleCheck = () => {
     // make a patch request to API
     setLoading(true);

@@ -10,7 +10,7 @@ function App() {
     <>
       <header>
         <img className='tropical' src='/images/MyLogo.png' alt='Trees logo'></img>
-        <h1>My Goal App</h1>
+       
       </header>
       {isLoggedIn
         ? <SecretStuff />

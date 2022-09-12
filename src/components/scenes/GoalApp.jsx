@@ -25,7 +25,7 @@ export default function SecretStuff() {
         <Layout className="layout">
 
           
-            <h1 className='App-header'>!!!The Boca Code Goal Setter App!!!</h1>
+            <h1 className='App-header'>!!!🎆The Goal Setter App🎆!!!</h1>
           
           <BrowserRouter>
       
