@@ -2,7 +2,7 @@ export default function GifHeader() {
    
    return (
       <>
-         <div id='BKC'>
+         <div >
             <>
                <header className='App-header'>
                   <h1 className='App-header'>Time Left Till The New Year🎉🎉🎉</h1>

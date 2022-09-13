@@ -7,12 +7,8 @@ export default function GoalList({  goallist, setGoalList }) {
   const [error, setError] = useState();
   // call the api and use setTasklist to fill in state...
   useEffect(() => {
-    fetch('https://mtm-final-proj.web.app/goals', {
+    fetch('https://mtm-final-proj.web.app/goals')
     // fetch('http://localhost:5555/tasks', {
-      headers: {
-       
-      }
-    })
       .then(results => results.json())
       .then(goals => {
         setGoalList(goals);

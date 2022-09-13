@@ -9,7 +9,6 @@ export default function AddGoal({ setGoalList}) {
     const addGoal = () => {
         if(!goal) return;
         fetch('https://mtm-final-proj.web.app/goals',{
-        // fetch('http://localhost:5055/goals',{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
